@@ -3,9 +3,9 @@
 第一次启动Termux的时候需要从远程服务器加载数据，然而可能会遇到这种问题：
 
 
-"""Ubable to install
+===Ubable to install
 Termux was unable to install the bootstrap packages.
-Check your network connection and try again."""
+Check your network connection and try again.===
 这里的Termux官方远程的服务器地址是: http://termux.net/bootstrap/
 
 
@@ -13,27 +13,21 @@ Check your network connection and try again."""
 
 VPN 全局代理 （成功率很高）
 如果你是 WiFi 的话尝试切换到运营商流量 （有一定成功率）
-① Google Play ② F-Droid ③ 酷安 根据这个顺序重复1、2操作
-基本操作
-
+① Google Play 
+② F-Droid 
+③ 酷安 根据这个顺序重复1、2操作
+基本操作:
 基本操作还是要学习一下的，可以事半功倍。
-
 缩放文本
-
 可以使用缩放手势来调整其字体大小。 对就是 双指放大缩小照片那样操作。
-
-
 长按屏幕
-
 长按屏幕会调出显示菜单项（包括复制、粘贴、更多），方便我们进行复制或者粘贴
-
 More 菜单的说明如下：
-
 Bash
 长按屏幕
-├── COPY:    # 复制
-├── PASTE:   # 粘贴
-├── More:    # 更多
+   ├── COPY:    # 复制
+   ├── PASTE:   # 粘贴
+   ├── More:    # 更多
    ├── Select URL:             # 提取屏幕所有网址
    └── Share transcipt:        # 分享命令脚本
    └── Reset:                  # 重置
@@ -74,15 +68,15 @@ Bash
 Ctrl键是终端用户常用的按键，但大多数触摸键盘都没有这个按键，因此 Termux 使用音量减小按钮来模拟Ctrl键。
 例如，在触摸键盘上按音量减小+ L就相当于是键盘上按Ctrl + L的效果一样，达到清屏的效果。
 
-Ctrl + A -> 将光标移动到行首
-Ctrl + C -> 中止当前进程
-Ctrl + D -> 注销终端会话
-Ctrl + E -> 将光标移动到行尾
-Ctrl + K -> 从光标删除到行尾
-Ctrl + U -> 从光标删除到行首
-Ctrl + L -> 清除终端
-Ctrl + Z -> 挂起（发送SIGTSTP到）当前进程
-Ctrl + alt + C -> 打开新会话（仅适用于 黑客键盘）
+    Ctrl + A -> 将光标移动到行首
+    Ctrl + C -> 中止当前进程
+    Ctrl + D -> 注销终端会话
+    Ctrl + E -> 将光标移动到行尾
+    Ctrl + K -> 从光标删除到行尾
+    Ctrl + U -> 从光标删除到行首
+    Ctrl + L -> 清除终端
+    Ctrl + Z -> 挂起（发送SIGTSTP到）当前进程
+    Ctrl + alt + C -> 打开新会话（仅适用于 黑客键盘）
 音量加键也可以作为产生特定输入的特殊键.
 
 音量加 + E -> Esc键
