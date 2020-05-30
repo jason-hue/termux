@@ -904,88 +904,95 @@ Nginx 默认网站的根目录为：
 
 哇哦~ok
 
-##Nodejs
+## Nodejs
 
 Node.js 是能够在服务器端运行 JavaScript 的开放源代码、跨平台 JavaScript 运行环境。
 
-安装 Nodejs
+### 安装 Nodejs
 
 nodejs-lts 是长期支持版本，如果执行 pkg install nodejs 版本后，发现 npm 报如下错误:
 
-Bah
-segmentation fault
-那么这个时候可以尝试卸载当前版本 pkg uninstall nodejs 然后执行下面命令安装长期稳定版本:
+    segmentation fault
 
-Bash
-pkg install nodejs-lts
+那么这个时候可以尝试卸载当前版本 
+    
+    pkg uninstall nodejs 
+
+然后执行下面命令安装长期稳定版本:
+
+    pkg install nodejs-lts
+
 安装完成后使用如下命令查看版本信息：
 
-Bash
-node -V
-npm -V
-Hello World
+    node -V
+    npm -V
+
+## Hello World
 
 新建一个 hello.js 脚本，内容如下:
 
-Javascript
-console.log('Hello Termux');
+    console.log('Hello Termux');
+
 然后尝试运行:
 
-Bash
-$ node hello.js
-Hello Termux
-http-server
+    $ node hello.js
+    Hello Termux
+
+## http-server
 
 http-server 是一个基于 Node.js 的简单零配置命令行HTTP服务器。
 
-Bash
-# 安装 http-server
-npm install -g http-server
+    # 安装 http-server
+    npm install -g http-server
 
-# 运行 http-server
-http-server
+    # 运行 http-server
+    http-server
 
 尝试电脑端浏览器直接访问看看:
 
-
 OK
-安装报错
+
+### 安装报错
 
 早期版本的 Termux 的 npm 安装一些包的时候会报如下错误：
 
-Verilog
-Cannot read property 'length' of undefined
+    Cannot read property 'length' of undefined
+
 查了下是这边版本的问题
 
 新版本貌似npm正常
+
 这是一个BUG，官方的解决方法如下：
 
-disable concurrency in case of libuv/libuv#1459
-
+    disable concurrency in case of libuv/libuv#1459
 
 编辑如下文件：
 
-Bash
-vim $PREFIX/lib/node_modules/npm/node_modules/worker-farm/lib/farm.js
+    vim $PREFIX/lib/node_modules/npm/node_modules/worker-farm/lib/farm.js
+
 我这里修改length的是4，这个好像和CPU有关，总之这里的 length 得指定一个数字。
 
 新版本貌似npm正常
-然后在重新安装下npm install hexo-cli -g 成功。
 
-PHP
+然后在重新安装下
+   
+    npm install hexo-cli -g
+
+成功。
+
+## PHP
 
 PHP 是一种开源的脚本语言，适用于网络开发。语法借鉴吸收C语言、Java 和 Perl 等流行计算机语言的特点，易于学习，PHP 是世界上最好的语言（手动狗头）。
 
-安装PHP
+### 安装PHP
 
 Termux 官方封装了 PHP，所以我们安装起来就很方便：
 
-Bash
-pkg install php
+    pkg install php
+
 安装完成后查看下版本信息：
 
-Bash
-php --version
+    php --version
 
 运行测试文件
 
@@ -993,77 +1000,75 @@ php --version
 
 首先在家(~)目录下建一个www 文件夹，然后在www文件夹下新建一个index.php文件，内容为：
 
-Php
-<?php phpinfo();?>
+    <?php phpinfo();?>
+
 完整的步骤如下:
 
-Bash
-# 新建 www 文件夹
-mkdir ~/www
+    # 新建 www 文件夹
+    mkdir ~/www
 
-# 创建 inedx.php 文件
-echo '<?php phpinfo();?>' > ~/www/index.php
+    # 创建 inedx.php 文件
+    echo '<?php phpinfo();?>' > ~/www/index.php
+
 编写完成index.php文件后，尝试使用 PHP 内置的 WebServer 直接启动:
 
-Bash
-# 进入家目录
-cd ~
+    # 进入家目录
+    cd ~
 
-# 启动 WebServer
-php -S 0.0.0.0:8888 -t www/
+    # 启动 WebServer
+    php -S 0.0.0.0:8888 -t www/
+
 自己制定端口后，浏览器访问http://127.0.0.1:8888效果如下：
 
-
-Python
+## Python
 
 Python是近几年非常流行的语言，Python 相关的书籍和资料也如雨后春笋一般不断涌现，带来了活跃了 Python 学习氛围。
 
-安装python2
+### 安装python2
 
 Python2 版本要淘汰了，大家简单了解一下就好：
 
-Bash
-pkg install python2 -y
+    pkg install python2 -y
+
 安装完成后，使用python2命令启动 Python2.7 的环境
 
-安装python3
+### 安装python3
 
 Termux 安装 Python 默认版本是 Python3 的版本，与此同时也顺便安装了clang
 
-Bash
-pkg install python -y
-安装完成后，查看下clang和Python的版本:
+    pkg install python -y
+
+安装完成后，查看下clang和Python的版本
 
 注意版本区分
 
-如果你同时安装了 Python3 和 Python2 版本的话，最好向下图中这样验证一下各个版本情况，做到心知肚明，国光我是先安装 Python3 然后再安装 Python2的:
+如果你同时安装了 Python3 和 Python2 版本的话，最好验证一下各个版本情况，做到心知肚明，我是先安装 Python3 然后再安装 Python2的
 
-
-安装顺序不一样 pip 这种图片应该也就不一样
 升级pip版本
 
 pip 保持最新是一个好习惯，升级方式很简单：
 
-Bash
-# 升级 pip2 
-python2 -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+    # 升级 pip2 
 
-# 升级 pip3
-python -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+    python2 -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+
+### 升级 pip3
+
+    python -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+
 这两条命令分别升级了pip2和pip3到最新版。升级完成后你会惊讶的发现你的pip3命令不见了？？？然后这个时候就开始吐槽国光了（内心OS：国光 非要强迫症升级 pip 版本，这下好了吧！）
 
-国光：不要慌 问题不大，我们可以手动查看当前有哪些可执行的 pip 文件，使用如下命令：
+不要慌 问题不大，我们可以手动查看当前有哪些可执行的 pip 文件，使用如下命令：
 
-Bash
-ls /data/data/com.termux/files/usr/bin|grep pip
+    ls /data/data/com.termux/files/usr/bin|grep pip
 
 原来我们的pip3变成了pip3.8了啊
-接下来分别查看对应 pip 可执行文件的版本:
 
+接下来分别查看对应 pip 可执行文件的版本
 
 现在全都是最新版的 pip 了哦
 
-iPython
+## iPython
 
 iPython是一个 Python 的增强版本的交互式 shell，支持变量自动补全，自动缩进，支持shell命令等，内置了许多很有用的功能和函数。iPython 可以提高我们的学习效率！
 
