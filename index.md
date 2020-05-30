@@ -3,9 +3,9 @@
 第一次启动Termux的时候需要从远程服务器加载数据，然而可能会遇到这种问题：
 
 
-===Ubable to install
-Termux was unable to install the bootstrap packages.
-Check your network connection and try again.===
+    Ubable to install
+    Termux was unable to install the bootstrap packages.
+    Check your network connection and try again.
 这里的Termux官方远程的服务器地址是: http://termux.net/bootstrap/
 
 
@@ -25,16 +25,16 @@ VPN 全局代理 （成功率很高）
 More 菜单的说明如下：
 Bash
 长按屏幕
-   ├── COPY:    # 复制
-   ├── PASTE:   # 粘贴
-   ├── More:    # 更多
-   ├── Select URL:             # 提取屏幕所有网址
-   └── Share transcipt:        # 分享命令脚本
-   └── Reset:                  # 重置
-   └── Kill process:           # 杀掉当前会话进程
-   └── Style:                  # 风格配色 需要自行安装
-   └── Keep screen on:         # 保持屏幕常亮
-   └── Help:                   # 帮助文档
+    ├── COPY:    # 复制
+    ├── PASTE:   # 粘贴
+    ├── More:    # 更多
+    ├── Select URL:             # 提取屏幕所有网址
+    └── Share transcipt:        # 分享命令脚本
+    └── Reset:                  # 重置
+    └── Kill process:           # 杀掉当前会话进程
+    └── Style:                  # 风格配色 需要自行安装
+    └── Keep screen on:         # 保持屏幕常亮
+    └── Help:                   # 帮助文档
 会话管理
 
 显示隐藏式导航栏，可以新建、切换、重命名会话session和调用弹出输入法
@@ -79,26 +79,26 @@ Ctrl键是终端用户常用的按键，但大多数触摸键盘都没有这个�
     Ctrl + alt + C -> 打开新会话（仅适用于 黑客键盘）
 音量加键也可以作为产生特定输入的特殊键.
 
-音量加 + E -> Esc键
-音量加 + T -> Tab键
-音量加 + 1 -> F1（音量增加 + 2 → F2…以此类推）
-音量加 + 0 -> F10
-音量加 + B -> Alt + B，使用readline时返回一个单词
-音量加 + F -> Alt + F，使用readline时转发一个单词
-音量加 + X -> Alt+X
-音量加 + W -> 向上箭头键
-音量加 + A -> 向左箭头键
-音量加 + S -> 向下箭头键
-音量加 + D -> 向右箭头键
-音量加 + L -> | （管道字符）
-音量加 + H -> 〜（波浪号字符）
-音量加 + U -> _ (下划线字符)
-音量加 + P -> 上一页
-音量加 + N -> 下一页
-音量加 + . -> Ctrl + \（SIGQUIT）
-音量加 + V -> 显示音量控制
-音量加 + Q -> 切换显示的功能键视
-音量加 + K -> 切换显示的功能键视图
+    音量加 + E -> Esc键
+    音量加 + T -> Tab键
+    音量加 + 1 -> F1（音量增加 + 2 → F2…以此类推）
+    音量加 + 0 -> F10
+    音量加 + B -> Alt + B，使用readline时返回一个单词
+    音量加 + F -> Alt + F，使用readline时转发一个单词
+    音量加 + X -> Alt+X
+    音量加 + W -> 向上箭头键
+    音量加 + A -> 向左箭头键
+    音量加 + S -> 向下箭头键
+    音量加 + D -> 向右箭头键
+    音量加 + L -> | （管道字符）
+    音量加 + H -> 〜（波浪号字符）
+    音量加 + U -> _ (下划线字符)
+    音量加 + P -> 上一页
+    音量加 + N -> 下一页
+    音量加 + . -> Ctrl + \（SIGQUIT）
+    音量加 + V -> 显示音量控制
+    音量加 + Q -> 切换显示的功能键视
+    音量加 + K -> 切换显示的功能键视图
 快捷键用的熟悉的话也可以极大提高操作的效率。
 
 基本命令
