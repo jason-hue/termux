@@ -1074,16 +1074,16 @@ iPython是一个 Python 的增强版本的交互式 shell，支持变量自动�
 
 先安装clang,否则直接使用pip安装ipython会失败报错. 没有安装的话使用 pkg install clang安装
 
-Bash
-# -i 手动指定国内清华 pip 源 提高下载速度
-pip install ipython -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
-pip3.8 install ipython -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+    # -i 手动指定国内清华 pip 源 提高下载速度
+    pip install ipython -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+    pip3.8 install ipython -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+
 执行完上述命令分别安装好对应版本的iPython后，然后分别查看对应版本信息：
 
-Bash
-ipython2 -V
-ipython -V
-Jupyter Notebook
+    ipython2 -V
+    ipython -V
+
+## Jupyter Notebook
 
 Jupyter Notebook（此前被称为 iPython notebook）可以在 Web 端提供Python交互，虽然和iPython共享同一个内核，但是更强大。
 
@@ -1091,70 +1091,70 @@ Jupyter notebook 相关的依赖比较多 安装起来较为耗时 国光就只�
 
 下面官方建议安装的完整的命令：
 
-Bash
-pkg update
-pkg install proot
-termux-chroot
-apt install git clang
-apt install pkg-config
-apt install python python3-dev 
-apt install libclang libclang-dev
-apt install libzmq libzmq-dev
-apt install ipython 
-pip install jupyter 
-如果你一步步跟着本文安装顺序操作的话，发现很多工具我们都安装过了(国光我真的有先见之明…)，那么直接参考如下命令安装即可:
+    pkg update
+    pkg install proot
+    termux-chroot
+    apt install git clang
+    apt install pkg-config
+    apt install python python3-dev 
+    apt install libclang libclang-dev
+    apt install libzmq libzmq-dev
+    apt install ipython 
+    pip install jupyter 
 
-Bash
-# -i 手动指定国内中清华 pip 源 提高下载速度
-# 更新是个好习惯
-pkg update
+如果你一步步跟着本文安装顺序操作的话，发现很多工具我们都安装过了(我真的有先见之明…)，那么直接参考如下命令安装即可:
 
-# 切换模拟的 root 环境
-termux-chroot
+    # -i 手动指定国内中清华 pip 源 提高下载速度
+    # 更新是个好习惯
+    pkg update
 
-# 安装相关依赖
-pkg install libclang
+    # 切换模拟的 root 环境
+    termux-chroot
 
-# 安装 jupyter
-pip3 install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+    # 安装相关依赖
+    pkg install libclang
 
-# 安装完成退出 chroot
-exit
+    # 安装 jupyter
+    pip3 install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 
-# 安装 jupyterlab
-pip3 install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+    # 安装完成退出 chroot
+    exit
+
+    # 安装 jupyterlab
+    pip3 install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+
 安装好之后查看一下版本信息：
 
-Bash
-jupyter --version
+    jupyter --version
 
 所有插件均安装完成
+
 Jupyter Notebook就安装好了，这个比较强大更详细的教程大家可以自行去谷歌或者百度一下，国光这里只演示基本的功能。
 
 先启动 notebook
 
-Bash
-jupyter notebook
-然后会看到运行的日志，我们复制出 提示的URL：
+    jupyter notebook
+
+然后会看到运行的日志，我们复制出提示的URL
 
 
-复制出的这个URL地址 在浏览器中打开：
+复制出的这个URL地址 在浏览器中打开
 
 
-可以看到成功运行了，那我们按照图片提示走个形式，输出个 Hello World就跑路：
+就成功运行了，那我们按照提示走个形式，输出个 Hello World就跑路：
 
 
 OK 运行成功，那么回到 Termux 里面使用组合键 Ctrl + C -> 中止当前的 Jupyter 进程
 
-网站搭建
+# 网站搭建
 
 网站搭建这一块实际上原理是大同小异的，国光这里只写几个网站的安装方法，给大家提供一个思路。
 
-DVWA
+## DVWA
 
 DVWA 是一个用来搞 Web 安全从业者入门使用的一个练习靶场，用来学习掌握基本的漏洞原理使用的，如果你对 Web 安全不感兴趣的话可以直接跳过这一个小节。
 
-国光建议 DVWA 练习的时候 要结合源码去分析漏洞 不要直接把网上攻击流程走一步就草草了之了 不看源码的学习 等于啥都没有学
+这里建议 DVWA 练习的时候 要结合源码去分析漏洞 不要直接把网上攻击流程走一步就草草了之了 不看源码的学习 等于啥都没有学
 
 环境准备
 
@@ -1162,41 +1162,36 @@ DVWA 是一个用来搞 Web 安全从业者入门使用的一个练习靶场，�
 
 下载 DVWA
 
-Bash
-wget https://github.com/ethicalhack3r/DVWA/archive/master.zip
+    wget https://github.com/ethicalhack3r/DVWA/archive/master.zip
+
 如果访问 Github 比较慢的话，可以尝试如下链接:
 
-Bash
-wget https://hub.fastgit.org/ethicalhack3r/DVWA/archive/master.zip
+    wget https://hub.fastgit.org/ethicalhack3r/DVWA/archive/master.zip
+
 解压到 Nginx 目录下
 
-Bash
-# 解压
-unzip master.zip -d $PREFIX/share/nginx/html/
+    # 解压
+    unzip master.zip -d $PREFIX/share/nginx/html/
 
-# 重命名
-cd $PREFIX/share/nginx/html/
-mv DVWA-master dvwa
-新建数据库
+    # 重命名
+    cd $PREFIX/share/nginx/html/
+    mv DVWA-master dvwa
 
-Sql
-mysql -uroot -p*** -e"create database dvwa;show databases;"
-*** 这里是mysql的密码
+### 新建数据库
 
+    mysql -uroot -p*** -e"create database dvwa;show databases;"
+    *** 这里是mysql的密码
 
 可以看到 dvwa 数据库已经新建成功了。
 
-编辑 DVWA 配置文件
+### 编辑 DVWA 配置文件
 
-Bash
-# 将配置文件 还原为 PHP 后缀
-cd $PREFIX/share/nginx/html/dvwa/config
-mv config.inc.php.dist config.inc.php
+    # 将配置文件 还原为 PHP 后缀
+    cd $PREFIX/share/nginx/html/dvwa/config
+    mv config.inc.php.dist config.inc.php
 
-# 编辑配置文件
-vim mv config.inc.php.dist config.inc.php
-只需要定位找到如下内容 根据你的实际情况填写就可以了:
-
+    # 编辑配置文件
+    vim mv config.inc.php.dist config.inc.php
 
 初次访问测试网站
 
@@ -1204,99 +1199,96 @@ vim mv config.inc.php.dist config.inc.php
 
 可以看到 allow_url_include 运行 URL 远程包含没有开启，我们得手动开启一下:
 
-
-
 实际上正常人是不会去开启这个的，十分危险，但是 DVWA 是一个靶场，有些漏洞实际上就是利用 PHP 配置不当造成的，这样才让新手有攻击下来的信心。
 
-配置 php.ini
+### 配置 php.ini
 
 Termux 下默认是没有 php.ini 文件的，不信我们手动来查找一下:
 
-Bash
-php --ini
+    php --ini
 
-Configuration File (php.ini) Path: /data/data/com.termux/files/usr/lib
-Loaded Configuration File:         (none)
-Scan for additional .ini files in: (none)
-Additional .ini files parsed:      (none)
-发现 php.ini 的文件应该存放在 /data/data/com.termux/files/usr/lib 目录下，但是 PHP 没有找到配置文件，所以需要我们手动在这个目录下新建 php.ini 配置文件:
+    Configuration File (php.ini) Path: /data/data/com.termux/files/usr/lib
+    Loaded Configuration File:         (none)
+    Scan for additional .ini files in: (none)
+    Additional .ini files parsed:      (none)
 
-Bash
-echo 'allow_url_include = On' > $PREFIX/lib/php.ini
+发现 php.ini 的文件应该存放在:
+
+    /data/data/com.termux/files/usr/lib 目录下，但是 PHP 没有找到配置文件，所以需要我们手动在这个目录下新建 php.ini 配置文件:
+
+    echo 'allow_url_include = On' > $PREFIX/lib/php.ini
+
 注意这是一个不安全的配置 只是为了配合本地的 DVWA 靶场 做模拟黑客攻击练习使用的
 
 配置完成后，自己尝试使用php --ini来定位搜索配置文件，会发现 PHP 已经找到了配置文件了。
 
 修改完配置文件后 得重启 php-fpm 服务:
 
-Bash
-# 杀掉 php-fpm 相关的进程
-kill -9 `pgrep fpm`
+    # 杀掉 php-fpm 相关的进程
+    kill -9 `pgrep fpm`
 
-# 再次启动 php-fpm
-php-fpm
-再次访问测试网站
+    # 再次启动 php-fpm
+    php-fpm
+
+再次访问测试网站:
 
 浏览器访问: http://192.168.31.124:8080/dvwa/setup.php
 
 可以看到刚刚的配置文件生效了，现在安全检查全部通过
 
-
 既然 安全检查通过的话，那么就直接页面滚动到最下面直接点击 Create/Reset Database初始化数据库按钮即可，初始化成功后会自动跳转到登录界面。
 
 DVWA 默认的用户有5个，用户名密码如下：
 
-用户名	密码
-admin	password
-gordonb	abc123
-1337	charley
-pablo	letmein
-smithy	password
-登录成功的效果图:
+    用户名	密码
+    admin	password
+    gordonb	abc123
+    1337	charley
+    pablo	letmein
+    smithy	password
+ 
+登录成功!!!!
 
+## Hexo
 
-Hexo
+Hexo 是一个用 Nodejs 编写的快速、简洁且高效的博客框架。Hexo 使用 Markdown 解析文章，在几秒内，即可利用靓丽的主题生成静态网页。另外大家看到我的博客就是使用 Hexo 搭建的哦。
 
-Hexo 是一个用 Nodejs 编写的快速、简洁且高效的博客框架。Hexo 使用 Markdown 解析文章，在几秒内，即可利用靓丽的主题生成静态网页。另外大家看到国光我的博客就是使用 Hexo 搭建的哦。
-
-安装 Hexo
+### 安装 Hexo
 
 Hexo 是用 Nodejs 编写的，所以安装的话得使用 npm 命令来安装：
 
-Bash
-npm install hexo-cli -g
+    npm install hexo-cli -g
+
 安装完成的话，顺便看一下 Hexo 相关的版本信息吧：
 
-Bash
-hexo -v
-Hexo 基本部署
+    hexo -v
+
+### Hexo 基本部署
 
 我们建立一个目录，然后到这个目录下初始化Hexo 环境
 
-Bash
-# 手动创建一个目录
-mkdir hexo  
+    # 手动创建一个目录
+    mkdir hexo  
 
-# 进入目录下并初始化Hexo环境
-cd hexo  
-hexo init  
+    # 进入目录下并初始化Hexo环境
+    cd hexo  
+    hexo init  
 
-#生成静态文件 启动Hexo
-hexo g
-hexo s      
+    #生成静态文件 启动Hexo
+    hexo g
+    hexo s      
 
 
 然后就跑起来一个最基本的 Hexo 博客，关于 Hexo 博客的详细教程，建议搭建去参考Hexo官方文档，我这里重点在于 Termux 其他的不作过多的叙述.
-使用浏览器访问: http://127.0.0.1:4000 即可看到 Hexo 的效果图：
+使用浏览器访问: http://127.0.0.1:4000 即可看到 Hexo
 
-Hexo 部署到 Nginx
+## Hexo 部署到 Nginx
 
 Hexo 是纯静态博客，官方默认把 Hexo 搭建在 Github Pages 仅仅是把 Hexo 根目录的 public 文件夹即 Hexo 生成的纯 HTML 源码部署到上面而已。所以知道这样原理 我们就可以轻而易举地将 Hexo 部署到 Nginx 下面。
 
 生成 HTML 纯静态源码
 
-Bash
-hexo g
+    hexo g
 
 可以看到 Hexo 的根目录下 已经生成了 public 文件夹了
 
@@ -1304,454 +1296,21 @@ hexo g
 
 现在我们只需要将 public 的文件夹里面的源码 全部拷贝到 Nginx 的网站根目录下：
 
-Bash
-# 在 nginx 根目录下新建 hexo 文件夹
-mkdir $PREFIX/share/nginx/html/hexo
+    # 在 nginx 根目录下新建 hexo 文件夹
+    mkdir $PREFIX/share/nginx/html/hexo
 
-# 拷贝 源码到 nginx 下
-cp -rf public/* $PREFIX/share/nginx/html/hexo
+    # 拷贝 源码到 nginx 下
+    cp -rf public/* $PREFIX/share/nginx/html/hexo
+
 访问效果查看
 
-浏览器访问:http://127.0.0.1:8080/hexo/ 即可看到效果：
-
-
+浏览器访问:http://127.0.0.1:8080/hexo/ 即可看到效果
 
 当然这里网站的CSS等样式没有加载出来，这个原因是 Hexo 对网站目录下部署并不友好 ，大概有如下解决方法：
 
 Nginx vhosts 配置多域名，这个服务器上常用的操作，但是 Termux 里面实现难度较高
 将 Hexo 的源码 直接拷贝到 Nginx 的根目录下，不用拷贝到 html/hexo 目录下了，然后直接访问 http://127.0.0.1:8080 即可看到效果
-国光这里就只是说一下这个思路，因为强迫症的我 不能忍受 Nginx 根目录的文件 乱七八糟 =，= 大家想尝试的话 按照我这个思路去尝试就可以了
+这里就只是说一下这个思路，因为强迫症的我 不能忍受 Nginx 根目录的文件 乱七八糟 =，= 大家想尝试的话 按照我这个思路去尝试就可以了
 
-KodExplorer
-
-KodExplorer 是一款开源文件资源管理器，搭建起来很简单，我们也可以在 Termux 搭建，这样就可以实现 Temux 下的文件分享了，十分优雅方便。在我的这篇文章：https://www.sqlsec.com/2019/11/kode.html 里面也讲解了 macOS下的安装。
-
-下载解压 Kod
-
-官网的下载地址：https://kodcloud.com/download/
-
-我们拷贝下载链接后，使用 wegt 可以直接下载：
-
-Bash
-# 下载
-wget http://static.kodcloud.com/update/download/kodexplorer4.40.zip
-
-# 解压 到 Nginx 的 kod 目录下
-unzip kodexplorer4.40.zip -d $PREFIX/share/nginx/html/kod
-
-安装设置 Kod
-
-Nginx 确保已经配置可以解析 PHP，如果没有配置好，那么请惨叫 上文的 「开发环境」小节
-
-手机浏览器访问: http://127.0.0.1:8080/kod 即可进入设置管理密码界面：
-
-
-设置完密码登录看看，建议大家在 Kod 里面设置电脑版视图，效果很赞，下面是主界面截图：
-
-
-推荐大家使用电脑版
-当然在局域网的情况下，通过IP地址，局域网的其他设备也是可以轻松访问到你的文件的，文件共享目的达成。
-
-WordPress
-
-WordPress 是一个以 PHP 和 MySQL 为平台的自由开源的博客软件和内容管理系统。如果你的 Termux 没有配置好 MySQL、PHP、Nginx 的话 那么请参考上面的 开发环境 章节来进行配置。
-
-新建数据库
-
-网站需要数据库，在安装 WordPress 前我们先需要新建一个数据库，以供后面的网站安装：
-
-Sql
-mysql -uroot -p*** -e"create database wordpress;show databases;"
-*** 这里是mysql的密码
-
-
-可以看到 wordpress 数据库已经新建成功了。
-
-下载 WordPress
-
-WordPress 历届版本: https://cn.wordpress.org/download/releases/
-
-选择最新的版本后，复制下载的直链，那么就开始用 wget 下载并解压吧：
-
-Bash
-#  wget 下载
-wget https://cn.wordpress.org/wordpress-5.4-zh_CN.zip
-
-# unzip 解压 没有安装unzip请自行安装
-unzip wordpress-4.9.4-zh_CN.zip
-
-# 将解压的文件夹移动到 nginx 网站根目录下
-mv wordpress/ $PREFIX/share/nginx/html
-如果WordPress官网这个下载又问题的话，可以多尝试几次，也可以通过如下渠道来下载
-
-WordPress Too Many Requests 出现这种报错，多半是中国的IP又被国外屏蔽了，可以尝试使用迅雷来下载
-挂代理来下载
-百度找国内的第三方非官方下载站下载（不是很推荐）
-配置 Nginx 解析
-
-如果你读过前面的「开发环境」、「Nginx」、「Nginx 解析 PHP」三个小节的话，这里直接启动 php-fpm 和 Nginx 即可：
-
-Bash
-php-fpm
-nginx
-当然如果你的 php-fpm 和 Nginx 服务以及启动的话 就直接跳到下一步吧
-
-安装 WordPress
-
-浏览器访问: http://127/.0.0.1/wordpress/进行 WordPress 的安装，根据提示填写好自己的 数据库信息即可安装，详细这一步大家都懂的，国光这里直接放安装好的效果图吧：
-
-
-WordPress的后台
-
-系统安装
-
-Termux 可以安装其他 Linux 发行版系统，核心用到的工具是 chroot ，所以我们得确保安装系统的时候 proot 这个包你是安装好的，然后因为操作系统店都有官方维护的脚本，所以安装起来甚至比我们前面配置的开发环境还要简单，下面来具体的介绍吧。
-
-实用必备工具
-
-有能力的朋友以下工具可以直接在 Google Play 商店里面下载，国光这里就简单列举搬运一下:
-
-软件	下载地址	说明
-VNC Viewer 3.6.1.42089 汉化版	蓝奏云	远程连接使用
-NetHunter KeX 4.0.7-6	蓝奏云	Kali 官方 远程连接工具
-AnLinux 6.10	蓝奏云	提供比较全面的系统安装脚本
-AndroNix 4.2	Google Play	提供比较全面的系统安装脚本
-VNC 工具的隐藏技巧，首先我们默认使用 VNC Viewer 这个工具远程是下图这张效果，可以看到并没有占满全屏，强迫症无法接受:
-
-
-VNC Viewer
-
-然后使用 Kali 官方的 NetHunter KeX 远程连接，屏幕就完全被充分利用了:
-
-
-NetHunter KeX
-
-但是 NetHunter Kex 在远程操作体验上又不如 VNC Viewer舒服，难道鱼和熊掌就无法兼得了吗？ 当然可以！！！ 经过国光测试，这个时候后台关掉 NetHunter KeX 的时候呢，再用 VNC Viewer 就可以完美的利用手机的全部屏幕空间了，岂不是美哉。
-
-Kali NetHunter
-
-Kali NetHunter 是基于 Kali Linux 的免费、开源的 Android 设备移动渗透测试平台，安全从业者必备的操作系统。
-
-安装 Kali NetHunter
-
-Kali 官网提供的完整的安装命令如下，下面国光标上注释方便大家理解:
-
-Bash
-# 申请存储访问权限
-termux-setup-storage
-
-# 安装 wget
-pkg install wget
-
-# 下载 安装脚本
-wget -O install-nethunter-termux https://offs.ec/2MceZWr 
-
-# 给脚本执行权限
-chmod +x install-nethunter-termux 
-
-# 运行安装脚本
-./install-nethunter-termux
-里面很多操作我们之前都做了，所以现在只需要如下几步即可:
-
-Bash
-# 下载 安装脚本
-wget -O install-nethunter-termux https://offs.ec/2MceZWr 
-
-# 给脚本执行权限
-chmod +x install-nethunter-termux 
-
-# 运行安装脚本
-./install-nethunter-termux
-下载包大概1.2GB左右安装过程比较慢，国光这里建议大家挂代理下载，提供效率和成功率
-
-如果你没有代理怎么办？ https://images.kali.org/nethunter/kalifs-arm64-full.tar.xz 这个就是最大的1.2GB的数据包，复制链接地址到迅雷等下载工具里面下载下来，然后拷贝到 Termux 手机的安装脚本同级目录下，或者直接更改脚本把这个数据包的下载地址替换为局域网的地址都可以方法有很多 大家可以自行发挥。
-
-安装成功的效果图如下:
-
-
-基本使用命令
-
-命令	说明
-nethunter	启动 Kali NetHunter 命令行界面
-nethunter kex passwd	配置 KeX 密码 (仅在第一次使用前需要)
-nethunter kex &	开始 KeX 会话服务
-nethunter kex stop	停止 Kali NetHunter 桌面
-nethunter <command>	在 NetHunter 环境中运行命令
-nethunter -r	以 root 身份启动 Kali NetHunterk 命令行界面
-nethunter -r kex passwd	配置 root 用户的 KeX 密码
-nethunter -r kex &	以 root 身份开始 KeX 会话服务
-nethunter -r kex stop	停止 root 身份运行的 KeX 会话服务
-nethunter -r kex kill	杀掉所有的 KeX 会话
-nethunter -r <command>	以 root 身份在 NetHunter 环境中运行命令
-nethunter 命令可以缩写成 nh ，Kali NetHunter 默认的用户名 kali 的密码也是 kali
-
-root 密码没有设置 可以输入 sudo passwd 来修改 root 用户的密码
-
-
-Kali 命令行的使用国光不在废话了，下面就列几个点，大家可以关注一下:
-
-Kali Linux 不需要换源，官方源会自动选择最佳的服务器节点
-root 用户 无法使用 nmap 所以 nmap 的一些需要高权限用户的参数无法正常使用
-完整安装 kali 工具集合可以使用 apt install kali-linux-default 大小大概为2.6GB左右 国光 不建议这样操作，需要啥工具 自己单独安装即可 没有必要全部安装
-Galaxy 系列手机可能会阻止 非 root 用户使用 sudo，只需使用 su -c 代替
-启动 VNC 服务
-
-上面命令表中的 KeX 服务，实际上就是VNC服务，默认的端口是 5901 端口，首先 Termux 下启动 Kali 的 VNC:
-
-Bash
-nh kex &
-
-图片上可以得出 KeX 服务的端口是 5901，然后进程的ID 是17222，可以使用 nmap 或者 netstat 命令再检测一下5901端口是否打开。
-
-VNC 工具连接
-
-VNC 连接还需要密码，所以这里手动设置一下:
-
-Bash
-nh kex passwd
-设置完成之后级可以在 VNC 连接工具里面填写相应的信息即可连接了，记得端口号要加上:
-
-
-VNC 关掉连接后，想要停止 Kex 服务即 VNC 服务，Termu 下使用如下命令即可退出服务:
-
-Bash
-nh kex stop
-其他 Linux 系统
-
-Termux 安装 Linux 系统项目地址:https://github.com/sqlsec/termux-install-linux
-
-这个脚本国光我磨磨蹭蹭写了1天才写完，筛选下来的系统都是体验还不错的系统。
-
-
-下载的主要镜像全部托管在了 Gitee 上，下载速度很快，而且系统对应的更新源国光均替换为国内源了，安装和卸载都很容易上手，用户非预期的输入也都考虑到了，目前完美支持 Ubuntu、Kali、Debian、CentOS、Fedora系统的安装，具体想尝试的话可以输入如下命令体验安装:
-
-确保 Termux 已经安装了 proot 和 Python3 才可以顺利安装
-
-Bash
-git clone https://github.com/sqlsec/termux-install-linux
-cd termux-install-linux
-python termux-linux-install.py
-系统安装的更多细节图可以参考我的这一篇文章: Android Termux 安装 Linux 就是这么简单
-
-极客行为
-
-如果你是一个极客玩家，不折腾会死星人的话，那么本章节比较适合你。祝你折腾愉快！
-
-Aria2
-
-Aria2 是一个轻量级多协议和多源命令行下载实用工具。它支持 HTTP / HTTPS, FTP, SFTP, bt 和 Metalink。最近被封杀的 PanDownload 也是使用的是 Aria2 来加速下载百度网盘里的资源的。本文是一个 Termux 教程，所以关于 Aria2 不会很深入将下去，关于更多 Aria2 的配置教程，大家可以参考网上其他大佬的教程。
-
-安装aria2
-
-Bash
-pkg install aria2
-安装完成后 可以顺便看一下版本信息：
-
-Bash
-aria2c -v
-启动 rcp 服务
-
-aria2 支持 rpc 服务，默认监听的是6800端口。这样我们可以使用开源的 Web 项目来连接操作 aria2
-
-Bash
-aria2c --enable-rpc --rpc-listen-all
-
-webui-aria2
-
-国光这里选的是这个比较流行的 aria2 的开源项目，地址是：https://github.com/ziahamza/webui-aria2 安装运行起来也很简单：
-
-Bash
-git clone https://github.com/ziahamza/webui-aria2.git
-cd webui-aria2
-node node-server.js
-需要node来运行,没有安装的 话使用pkg install nodejs来安装
-
-如果如果下载速度比较慢的话，可以尝试使用 fastgit镜像地址来下载
-
-git clone https://hub.fastgit.org/ziahamza/webui-aria2.git
-
-
-运行起来后，浏览器访问:http://localhost:8888查看效果：
-
-
-SSH
-
-有时候我们需要通过 ssh 远程连接服务器，这个时候有 Termux，躺在床上就可以操作电脑了，哇！哦哦哦！awesome ，或者我们突然很闲，想要用电脑来远程手机，没错 Termux 都可以做到。
-
-Termux ssh 连接电脑
-
-安装 openssh
-
-OpenSSH 是SSH （Secure SHell） 协议的免费开源实现。SSH协议族可以用来进行远程控制， 或在计算机之间传送文件。Termux 官方已经封装好了，我们安装起来也会很简单：
-
-Bash
-pkg install openssh
-远程连接电脑
-
-然后就可以直接ssh连接你的服务器了，（前提是电脑安装了ssh服务)
-
-Bash
-ssh sqlsec@192.168.1.8
-手机连接操作电脑效果图:
-
-附上完整的 Linux SSH 连接命令格式：
-
-Bash
-# ssh -p 端口号 用户名@主机名或者IP
-ssh -p 22 user@hostname_or_ip
-
-# ssh -i 私钥 用户名@主机名或者IP
-ssh -i id_rsa user@hostname_or_ip
-传输文件
-
-SSH 不仅仅可以远程连接服务器，同样也可以使用SSH自带的scp命令进行文件传输：
-
-复制文件
-
-Bash
-# scp 本地文件路径 远程主机用户名@远程主机名或IP:远程文件保存的位置路径
-scp local_file remote_username@remote_ip:remote_folder
-复制目录
-
-Bash
-# scp -r 本地文件夹路径 远程主机用户名@远程主机名或IP:远程文件夹保存的位置路径
-scp -r local_folder remote_username@remote_ip:remote_folder
-看完了 不打算亲自尝试一下文件传输的操作吗？ :-)
-
-电脑 ssh 连接 Termux
-
-这个使用场景比较少，但是既然要打造中国的 Termux 文档的效果，还是一起写上去吧，首先确保你已经安装了 openssh 软件包，没有安装的话参考上一个小结进行安装。实现这个效果有两大种方法：
-
-SSH 通过密码认证连接
-
-SSH 通过公私钥连接
-
-PC 端生成公私钥，然后将 公钥 拷贝到 Termux 中，通过公私钥连接。
-
-Termux 端生成公私钥，然后将 私钥拷贝到 PC 中，通过公私钥连接。
-
-启动 ssh 服务
-
-安装完成后,sshd服务默认没有启动，所以得手动启动下:
-
-Bash
-sshd
-因为手机上面低的端口有安全限制，所以这里 openssh 默认的 sshd 默认的服务端口号为 8022
-
-停止 ssh 服务
-
-如果需要停止 ssh 服务，只需要 kill 杀掉进程即可：
-
-Bash
-pkill sshd
-通过密码认证链接
-
-Termux 默认是使用密码认证进行连接的，如果要启用密码连接的话要确保你的密码足够安全，否则你的SSH被恶意攻击者连接或者爆破成功的话，那就美滋滋了！
-
-Termux 下的 SSH 默认配置文件的路径为 $PREFIX/etc/ssh/sshd_config，我们来查看下这个配置文件：
-
-Sshd_config
-PrintMotd no
-PasswordAuthentication yes
-Subsystem sftp /data/data/com.termux/files/usr/libexec/sftp-server
-国光的 Termux 0.94 的版本就这3行配置，下面来逐行解释一下这个配置：
-
-PrintMotd : 是否显示登录成功的欢迎信息 例如上次登入的时间、地点等
-
-PasswordAuthentication: 是否启用密码认证
-
-Subsystem: SFTP 服务相关的设定
-
-设置新密码
-执行 passwd 命令可以直接修改密码:
-
-Bash
-passwd
-
-密码不要忘记哦
-电脑远程连接测试
-国光测试了一下 Termux 的 ssh 和常规 Linux 不太一样，连接的时候不需要指定用户名。
-
-Bash
-ssh 192.168.31.124 -p 8022
-
-通过公私钥连接
-
-公私钥连接更加安全，再也不用但你的Termux SSH被黑客爆破攻击的情况了
-
-PC 端生成公私钥
-首先在PC端生成秘钥对:
-
-Bash
-ssh-keygen
-默认一直回车下去:
-
-
-此时会在~/.ssh目录下生成 3 个文件
-id_rsa， id_rsa.pub，known_hosts
-
-然后需要把公钥 id_rsa.pub 拷贝到手机的 data\data\com.termux\files\home\.ssh 文件夹中。然后
-
-将公钥拷贝到验证文件中
-
-在Termux下操作
-
-Bash
-cat id_rsa.pub > authorized_keys
-
-OK 现在你已经设置好公私钥了，那么修改一下 SSH 的配置文件，关掉密码登录吧：
-
-Bash
-vim $PREFIX/etc/ssh/sshd_config
-找到
-
-Bash
-PasswordAuthentication yes 
-修改为
-
-Bash
-PasswordAuthentication no
-然后记得重启一下 SSH 服务：
-
-Bash
-pkill sshd;sshd
-然后电脑端这边直接就可以通过公私钥连接了，无需输入密码也更加安全：
-
-Bash
-ssh 192.168.31.124 -p 8022
-
-Termux 端生成公私钥
-操作完上一步之后，我想你大概已经知道了公私钥的原理了。那么我们现在尝试在 Termux 端生成公私钥这种方法试试看，理论上也是可以的。
-
-首先在 Termux 端生成秘钥对:
-
-ssh-keyge
-此时会在~/.ssh目录下生成 3 个文件
-id_rsa， id_rsa.pub，known_hosts
-
-然后将公钥拷贝到验证文件中
-
-Bash
-cat id_rsa.pub > authorized_keys
-
-接着将id_rsa.pub私钥下载下来，拷贝到PC端上，并赋予 600 的权限：
-
-Bash
-chmod 600 id_rsa
-然后通过-i 手动加载私钥的方式也可以成功连接到 Termux:
-
-Bash
-ssh -i id_rsa root@192.168.31.124 -p 8022
-
-Bingo!
-至此，Termux ssh 连接的 3 种方式都演示过了，国光个人比较建议使用 PC 端生成公私钥 的方法，这样可以减少 rsa 私钥泄露的风险，也方便PC端的远程连接与管理。
-
-Bash
-pkg install aria2
-本地启动服务
-
-Bash
-aria2c --enable-rpc --rpc-listen-all
-这个rpc服务默认监听的是6800端口,启动后方便下面的Web界面连接操作.
-
-webui-aria2
+##knifefire还会持续更新文章的啦
+©knifefire & ZH
