@@ -382,11 +382,12 @@ zsh 之所以受欢迎除了好看的配色以为，另一个原因就是强大�
 
 这样启动新的会话的时候看上去就会简洁很多。什么你也想要这个效果？ 呐 下面是我自己生成的，可以直接复制粘贴:
 你可以直接复制这个：
-      _____                              
-     |_   _|__ _ __ _ __ ___  _   ___  __
-       | |/ _ \ '__| '_ ` _ \| | | \ \/ /
-       | |  __/ |  | | | | | | |_| |>  < 
-       |_|\___|_|  |_| |_| |_|\__,_/_/\_\
+     
+         _____                                 
+        |_   _|__ _ __ _ __ ___  _   ___  __
+           | |/ _ \ '__| '_ ` _ \| | | \ \/ /
+           | |  __/ |  | | | | | | |_| |>  < 
+           |_|\___|_|  |_| |_| |_|\__,_/_/\_\
 
 ## 超级管理员身份
 
@@ -474,7 +475,23 @@ Termux Vim 自带了如下的配色：
 
     ls /data/data/com.termux/files/usr/share/vim/vim82/colors
 
-=== desert.vim    morning.vim    shine.vim    blue.vim      elflord.vim   murphy.vim     slate.vim    darkblue.vim  evening.vim   pablo.vim      industry.vim  peachpuff.vim  torte.vim    delek.vim     koehler.vim   ron.vim        zellner.vim === 
+    desert.vim   
+    morning.vim    
+    shine.vim    
+    blue.vim      
+    elflord.vim   
+    murphy.vim     
+    slate.vim    
+    darkblue.vim 
+    evening.vim   
+    pablo.vim      
+    industry.vim  
+    peachpuff.vim  
+    torte.vim    
+    delek.vim     
+    koehler.vim   
+    ron.vim        
+    zellner.vim
 
 配色可以自己一个个尝试一下，还是向上面的汉字乱码那样，编辑家目录下的.vimrc文件：
 
