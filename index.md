@@ -6,24 +6,22 @@
     Ubable to install
     Termux was unable to install the bootstrap packages.
     Check your network connection and try again.
+
 这里的Termux官方远程的服务器地址是: http://termux.net/bootstrap/
-
-
 目前解决方法有两种：
-
 VPN 全局代理 （成功率很高）
 如果你是 WiFi 的话尝试切换到运营商流量 （有一定成功率）
 ① Google Play 
 ② F-Droid 
 ③ 酷安 根据这个顺序重复1、2操作
+
 基本操作:
 基本操作还是要学习一下的，可以事半功倍。
 缩放文本
 可以使用缩放手势来调整其字体大小。 对就是 双指放大缩小照片那样操作。
 长按屏幕
 长按屏幕会调出显示菜单项（包括复制、粘贴、更多），方便我们进行复制或者粘贴
-More 菜单的说明如下：
-Bash
+菜单的说明如下：
 长按屏幕
     ├── COPY:    # 复制
     ├── PASTE:   # 粘贴
@@ -36,33 +34,19 @@ Bash
     └── Keep screen on:         # 保持屏幕常亮
     └── Help:                   # 帮助文档
 会话管理
-
 显示隐藏式导航栏，可以新建、切换、重命名会话session和调用弹出输入法
-
 同时在Android的通知栏中也可以看到当前Termux运行的会话数：
-
-
 常用按键
-
 常用键是PC端常用的按键如: ESC键、Tab键、CTR键、ALT键，有了这些按键后可以提高我们日常操作的效率，所以Termux后面的版本默认都是显示这个扩展功能按键的。 (18年的时候默认是不显示的)
-
-
 打开和隐藏这个扩展功能按键目前有下面两种方法：
-
 方法一
-
 从左向右滑动,显示隐藏式导航栏,长按左下角的KEYBOARD
-
 方法二
-
 使用Termux快捷键:音量++Q键 或者 音量++K键
-
 当然这个常用按键在 Termux 后面的版本也支持自定义的，详情见本文的「进阶配置」-「定制常用按键」这一小节。
 
 基础知识
-
 这些基础知识简单了解一下就可以了，Linux 用的多了 就会慢慢熟悉理解了。
-
 快捷键表
 
 Ctrl键是终端用户常用的按键，但大多数触摸键盘都没有这个按键，因此 Termux 使用音量减小按钮来模拟Ctrl键。
@@ -105,117 +89,99 @@ Ctrl键是终端用户常用的按键，但大多数触摸键盘都没有这个�
 
 Termux 除了支持 apt 命令外，还在此基础上封装了pkg命令，pkg 命令向下兼容 apt 命令。apt命令大家应该都比较熟悉了，这里直接简单的介绍下pkg命令:
 
-Bash
-pkg search <query>              # 搜索包
-pkg install <package>           # 安装包
-pkg uninstall <package>         # 卸载包
-pkg reinstall <package>         # 重新安装包
-pkg update                      # 更新源
-pkg upgrade                     # 升级软件包
-pkg list-all                    # 列出可供安装的所有包
-pkg list-installed              # 列出已经安装的包
-pkg show <package>              # 显示某个包的详细信息
-pkg files <package>             # 显示某个包的相关文件夹路径
-国光建议大家使用 pkg 命令，因为 pkg 命令每次安装的时候自动执行 apt update 命令，很是方便
+
+    pkg search <query>              # 搜索包
+    pkg install <package>           # 安装包
+    pkg uninstall <package>         # 卸载包
+    pkg reinstall <package>         # 重新安装包
+    pkg update                      # 更新源
+    pkg upgrade                     # 升级软件包
+    pkg list-all                    # 列出可供安装的所有包
+    pkg list-installed              # 列出已经安装的包
+    pkg show <package>              # 显示某个包的详细信息
+    pkg files <package>             # 显示某个包的相关文件夹路径
+建议大家使用 pkg 命令，因为 pkg 命令每次安装的时候自动执行 apt update 命令，很是方便
 
 软件安装
 
 除了通过上述的 pkg 命令安装软件以外，如果我们有 .deb 软件包文件，也可以使用 dpkg 进行安装。
 
-Bash
-dpkg -i ./package.de         # 安装 deb 包
-dpkg --remove [package name] # 卸载软件包
-dpkg -l                      # 查看已安装的包
-man dpkg                     # 查看详细文档
+    dpkg -i ./package.de         # 安装 deb 包
+    dpkg --remove [package name] # 卸载软件包
+    dpkg -l                      # 查看已安装的包
+    man dpkg                     # 查看详细文档
 目录结构
 
-Bash
-echo $HOME
-/data/data/com.termux/files/home
+    echo $HOME
+    /data/data/com.termux/files/home
 
-echo $PREFIX
-/data/data/com.termux/files/usr
+    echo $PREFIX
+    /data/data/com.termux/files/usr
 
-echo $TMPPREFIX
-/data/data/com.termux/files/usr/tmp/zsh
+    echo $TMPPREFIX
+    /data/data/com.termux/files/usr/tmp/zsh
 长期使用 Linux 的朋友可能会发现，这个HOME路径看上去和我们电脑端的不太一样，这是为了方便 Termux 提供的特殊的环境变量。
 
-端口查看
-
+## 端口查看
 Android 10 以下版本
-
 Andorid 10 以下的版本是可以正常使用netstat 命令的，这样可以方便的查看端口开放信息
-
-Bash
-# 查看所有端口
+## 查看所有端口
 netstat -an
 
-# 查看3306端口的开放情况
+## 查看3306端口的开放情况
 netstat -an|grep 3306
-
-Android 10 版本
 
 Andorid 10 版本的Termux 下无法正常使用 netstat -an 命令，国光的解决方法是安装一个 nmap，然后扫描本地端口（弯道超车）：
 
-Bash
-# 安装nmap端口扫描神器
+## 安装nmap端口扫描神器
 pkg install nmap
 
-# 扫描本地端口
+## 扫描本地端口
 nmap 127.0.0.1
 使用 nmap 操作 纯属无奈之举，但是又不是不能用（源于：罗永浩名言 :-)）
-
-
 进阶配置
-
-要想使用体验好，进阶配置少不了。（单押）
-
-更换国内源
-
+要想使用体验好，进阶配置少不了。
+## 更换国内源
 使用pkg update 更新一下的时候发现默认的官方源网速有点慢，在这个喧嚣浮躁的时代，我们难以静下心等待，这个时候就得更换成国内的Termux清华大学源了，加快软件包下载速度。
 
-方法一：自动替换（推荐）
-
+### 方法一：自动替换（推荐）
 可以使用如下命令自动替换官方源为 TUNA 镜像源
-
 pkg update 卡住的话多按几次回车 不要傻乎乎的等
 
-Bash
-sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@' $PREFIX/etc/apt/sources.list
 
-sed -i 's@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@' $PREFIX/etc/apt/sources.list.d/game.list
+    sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@' $PREFIX/etc/apt/sources.list
 
-sed -i 's@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@' $PREFIX/etc/apt/sources.list.d/science.list
+    sed -i 's@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@' $PREFIX/etc/apt/sources.list.d/game.list
 
-pkg update
+    sed -i 's@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@' $PREFIX/etc/apt/sources.list.d/science.list
+
+    pkg update
 更换源几秒钟就可以执行完pkg update了，心里顿时乐开了花。
 
-方法二：手动修改
+### 方法二：手动修改
 
 请使用内置或安装在 Termux 里的文本编辑器，例如 vi / vim / nano 等直接编辑源文件，不要使用 RE 管理器等其他具有 ROOT 权限的外部 APP 来修改 Termux 的文件
 
 编辑 $PREFIX/etc/apt/sources.list 修改为如下内容
+    
+     The termux repository mirror from TUNA:
+    deb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main
 
-Bash
-# The termux repository mirror from TUNA:
-deb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main
 编辑 $PREFIX/etc/apt/sources.list.d/science.list 修改为如下内容
 
-Bash
-# The termux repository mirror from TUNA:
-deb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable
+    The termux repository mirror from TUNA:
+    deb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable
+
 编辑 $PREFIX/etc/apt/sources.list.d/game.list 修改为如下内容
 
-Bash
-# The termux repository mirror from TUNA:
-deb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable
+    The termux repository mirror from TUNA:
+    deb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable
 安装基础工具
 
 更换源之后来赶紧来下载安装一些基本工具吧，这些工具基本上是 Linux 系统自带的，因为 Termux 为了体积不过大，默认是没有带这些工具的，执行下面的命令来安装:
+    pkg update
+    pkg install vim curl wget git tree -y
 
-Bash
-pkg update
-pkg install vim curl wget git tree -y
 终端配色方案
 
 脚本项目地址：https://github.com/Cabbagec/termux-ohmyzsh/
