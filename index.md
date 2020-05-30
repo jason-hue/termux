@@ -22,6 +22,7 @@ VPN 全局代理 （成功率很高）
 长按屏幕
 长按屏幕会调出显示菜单项（包括复制、粘贴、更多），方便我们进行复制或者粘贴
 菜单的说明如下：
+
 长按屏幕
     ├── COPY:    # 复制
     ├── PASTE:   # 粘贴
@@ -33,6 +34,7 @@ VPN 全局代理 （成功率很高）
     └── Style:                  # 风格配色 需要自行安装
     └── Keep screen on:         # 保持屏幕常亮
     └── Help:                   # 帮助文档
+
 会话管理
 显示隐藏式导航栏，可以新建、切换、重命名会话session和调用弹出输入法
 同时在Android的通知栏中也可以看到当前Termux运行的会话数：
@@ -182,7 +184,7 @@ pkg update 卡住的话多按几次回车 不要傻乎乎的等
     pkg update
     pkg install vim curl wget git tree -y
 
-终端配色方案
+## 终端配色方案
 
 脚本项目地址：https://github.com/Cabbagec/termux-ohmyzsh/
 
@@ -190,33 +192,32 @@ pkg update 卡住的话多按几次回车 不要傻乎乎的等
 
 执行下面这个命令确保已经安装好了 curl 命令
 
-Bash
-sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"  
+    sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"  
 如果因为不可抗力的原因，出现port 443: Connection refused网络超时的情况，那么执行下面国光迁移到国内的地址的命令即可：
 
-Bash
-sh -c "$(curl -fsSL https://html.sqlsec.com/termux-install.sh)"  
+    sh -c "$(curl -fsSL https://html.sqlsec.com/termux-install.sh)"  
 Android6.0 以上会弹框确认是否授权访问文件,点击始终允许授权后 Termux 可以方便的访问SD卡文件。
 
 
-手机 App 默认只能访问自己的数据，如果要访问手机的存储，需要请求权限，如果你刚刚不小心点了拒绝的话，那么可以执行以下命令来重新获取访问权限:
+### 手机 App 默认只能访问自己的数据，如果要访问手机的存储，需要请求权限，如果你刚刚不小心点了拒绝的话，那么可以执行以下命令来重新获取访问权限:
 
-Bash
-termux-setup-storage
+    termux-setup-storage
+
 脚本允许后先后有如下两个选项:
 
-Bash
-Enter a number, leave blank to not to change: 14
-Enter a number, leave blank to not to change: 6
+#### Enter a number, leave blank to not to change: 14
+#### Enter a number, leave blank to not to change: 6
 分别选择色彩样式和字体样式，重启Termux app后生效配置。不满意刚刚的效果，想要继续更改配色方案的话，可以根据下面命令来更改对应的色彩配色方案：
 
 设置色彩样式：
 
-输入chcolor命令更换色彩样式，或者：~/.termux/colors.sh命令
+输入chcolor命令更换色彩样式，或者：输入
+    ~/.termux/colors.sh
 
 设置字体
 
-运行chfont更换字体，或者：~/.termux/fonts.sh命令
+运行chfont更换字体，或者：
+    ~/.termux/fonts.sh
 
 创建目录软连接
 
@@ -227,60 +228,61 @@ Enter a number, leave blank to not to change: 6
 手机上一般经常使用手机QQ来接收文件,这里为了方便文件传输,直接在storage目录下创建软链接.
 QQ
 
-Bash
-ln -s /data/data/com.termux/files/home/storage/shared/tencent/QQfile_recv QQ
+    ln -s /data/data/com.termux/files/home/storage/shared/tencent/QQfile_recv QQ
 TIM
 
-Bash
-ln -s /data/data/com.termux/files/home/storage/shared/tencent/TIMfile_recv TIM
+    ln -s /data/data/com.termux/files/home/storage/shared/tencent/TIMfile_recv TIM
 
 这样可以直接在home目录下去访问QQ文件夹，大大提升了工作效率。
 
-定制常用按键
+## 定制常用按键
 
-在 Termux v0.66 的版本之后我们可以通过 ~/.termux/termux.properties 文件来定制我们的常用功能按键，默认是不存在这个文件的，我们得自己配置创建一下这个文件。
+在 Termux v0.66 的版本之后我们可以通过 
+    ~/.termux/termux.properties 
+文件来定制我们的常用功能按键，默认是不存在这个文件的，我们得自己配置创建一下这个文件。
 
 下面做尝试简单配置一下这个文件:
 
-Bash
-# 新建并编辑配置文件
-vim ~/.termux/termux.properties
+### 新建并编辑配置文件
+    vim ~/.termux/termux.properties
 内容为：
 
-Bash
-extra-keys = [ \
+    extra-keys = [ \
  ['ESC','|','/','HOME','UP','END','PGUP','DEL'], \
  ['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN','BKSP'] \
 ]
-如果无法创建这个文件，那么得首先新建一下这个目录 mkdir ~/.termux
+
+如果无法创建这个文件，那么得首先新建一下这个目录:
+    mkdir ~/.termux
 
 修改完成保存文件后，重启 Termux app生效配置：
 
 
 可以直接输入特殊的字符串，例如上面的例子中的|就是一个字符串，此外 Termux 还有封装了一些特殊按键，入上面例子中的ESC就是 Termux 自带的按键，完整的特殊按键表如下：
 
-按键	说明
-CTRL	特殊按键
-ALT	特殊按键
-FN	特殊按键
-ESC	退出键
-TAB	表格键
-HOME	原位键
-END	结尾键
-PGUP	上翻页键
-PGDN	下翻页键
-INS	插入键
-DEL	删除键
-BKSP	退格键
-UP	方向键 上
-LEFT	方向键 左
-RIGHT	方向键 右
-DOWN	方向键 下
-ENTER	回车键
-BACKSLASH	反斜杠 \
-QUOTE	双引号键
-APOSTROPHE	单引号键
-F1~F12	F1-F12按键
+    按键	说明
+    CTR 特殊按键
+    ALT	特殊按键
+    FN	特殊按键
+    ESC	退出键
+    TAB	表格键
+    HOME 原位键
+    END	结尾键
+    PGUP 上翻页键
+    PGDN 下翻页键
+    INS	插入键
+    DEL	删除键
+    BKSP 退格键
+    UP	方向键 上
+    LEFT 方向键 左
+    RIGHT 方向键 右
+    DOWN 方向键 下
+    ENTER 回车键
+    BACKSLASH 反斜杠 \
+    QUOTE 双引号键
+    APOSTROPHE 单引号键
+    F1~F12 F1-F12按键
+
 上面列出的三个特殊键中的每一个最多只能在附加键定义中列出一次，超过次数将会报错。
 
 下面是国光我自用的按键表：
