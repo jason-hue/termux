@@ -1,4 +1,9 @@
 ![](1.jpg)
+
+#Termux菜鸟教程
+
+
+
 初始化
 
 第一次启动Termux的时候需要从远程服务器加载数据，然而可能会遇到这种问题：
@@ -160,7 +165,7 @@ netstat -an
 ## 查看3306端口的开放情况
 netstat -an|grep 3306
 
-Andorid 10 版本的Termux 下无法正常使用 netstat -an 命令，国光的解决方法是安装一个 nmap，然后扫描本地端口（弯道超车）：
+Andorid 10 版本的Termux 下无法正常使用 netstat -an 命令，我的解决方法是安装一个 nmap，然后扫描本地端口（弯道超车）：
 
 ## 安装nmap端口扫描神器
 pkg install nmap
