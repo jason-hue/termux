@@ -4,6 +4,8 @@
 
 ©knifefire著，转载请注明出处哦
 
+[如果你没有任何命令行经验，那么请先看我！！！](http://jason-hue.github.io/terminal/)
+
 [点此加作者QQ](https://qm.qq.com/cgi-bin/qm/qr?k=JfLh15cfSzG0vziJz6EdW67XrIlSMpdM&noverify=0)
 
 对于没有电脑，却又想成为一名天才极客的童鞋们简直就是不要太好
